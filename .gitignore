@@ -1,0 +1,17 @@
+# Visual studio files
+.vs/
+
+# Build folders
+bin/
+obj/
+
+# User files vs
+*.user
+*.suo
+
+# Temps and logs
+*.log
+*.tlog
+
+# local dependencies
+packages/
