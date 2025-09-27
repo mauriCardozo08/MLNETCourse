@@ -20,9 +20,11 @@ namespace MLNETProjects.ImageClassificator
 
         }
 
-        public void Execute() { }
+        public void Execute() {
+            TrainAndTestModel();
+        }
 
-        public void TrainModel() {
+        public void TrainAndTestModel() {
             MLContext mlContext = new MLContext();
 
             IEnumerable<ImageData> images = LoadImagesFromDirectory(folder: dataFolder);
@@ -59,10 +61,12 @@ namespace MLNETProjects.ImageClassificator
 
             ClassifyMultiple(mlContext, testSet, trainedModel);
         }
+        
+        string dataFolder = Path.Combine(
+              AppDomain.CurrentDomain.BaseDirectory,
+                @"..\..\..\ImageClassificator\Data"
+        );
 
-        private void TestModel() { }
-
-        private string dataFolder = "C:\\Users\\Mauri\\source\\repos\\MLNETProjects\\MLNETProjects\\ImageClassificator\\Data";
         private static IEnumerable<ImageData> LoadImagesFromDirectory(string folder) 
         {
             var files = Directory.GetFiles(folder, "*", searchOption: SearchOption.AllDirectories);

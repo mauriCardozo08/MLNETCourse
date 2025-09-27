@@ -23,7 +23,12 @@ namespace MlNETProjects.ClassificationAI
 
         private void TestModel() 
         {
-            string basePath = "C:\\Users\\mcardozo\\source\\repos\\MlNETProjects\\MlNETProjects\\ClassificationAI";
+
+            string basePath = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                @"..\..\..\ClassificationAI"
+            );
+
             string modelPath = Path.Combine(basePath, "model.zip");
             string testDataPath = Path.Combine(basePath, "test.csv");
 
@@ -68,7 +73,12 @@ namespace MlNETProjects.ClassificationAI
         private void TrainTheModel() 
         {
             MLContext mLContext = new MLContext();
-            string dataPath = "C:\\Users\\mcardozo\\source\\repos\\MlNETProjects\\MlNETProjects\\ClassificationAI\\train.csv";
+
+            string dataPath = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                @"..\..\..\ClassificationAI\train.csv"
+            );
+
             string text = File.ReadAllText(dataPath);
 
             using (StreamReader sr = new StreamReader(dataPath))
@@ -89,7 +99,13 @@ namespace MlNETProjects.ClassificationAI
             Console.WriteLine($"Precision: {metrics.PositivePrecision}");
             Console.WriteLine($"Recall: {metrics.PositiveRecall}");
             Console.WriteLine($"F1Score: {metrics.F1Score}");
-            mLContext.Model.Save(model, dataView.Schema, "C:\\Users\\mcardozo\\source\\repos\\MlNETProjects\\MlNETProjects\\ClassificationAI\\model.zip");
+
+            string modelPath = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                @"..\..\..\ClassificationAI\model.zip"
+            );
+
+            mLContext.Model.Save(model, dataView.Schema, modelPath);
         }
 
         public class MovieReview 

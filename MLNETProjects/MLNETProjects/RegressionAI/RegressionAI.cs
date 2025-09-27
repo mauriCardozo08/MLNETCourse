@@ -18,7 +18,12 @@ namespace MlNETProjects.RegressionAI
         private void TrainAndTestTheModel()
         {
             var mlContext = new MLContext(seed: 0);
-            var dataPath = "C:\\Users\\mcardozo\\source\\repos\\MlNETProjects\\MlNETProjects\\RegressionAI\\house-price-data.csv";
+
+            string dataPath = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                @"..\..\..\RegressionAI\house-price-data.csv"
+            );
+
 
             IDataView dataView = mlContext.Data.LoadFromTextFile<HouseData>(dataPath, separatorChar: ',', hasHeader: true);
             var trainTestData = mlContext.Data.TrainTestSplit(dataView, testFraction: 0.2);
