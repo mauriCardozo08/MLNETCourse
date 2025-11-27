@@ -8,17 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.ML" Version="4.0.2" />
-    <PackageReference Include="Microsoft.ML.FastTree" Version="4.0.2" />
-    <PackageReference Include="Microsoft.ML.ImageAnalytics" Version="4.0.2" />
-    <PackageReference Include="Microsoft.ML.TensorFlow" Version="4.0.2" />
-    <PackageReference Include="Microsoft.ML.Vision" Version="4.0.2" />
-    <PackageReference Include="SciSharp.TensorFlow.Redist" Version="2.3.1" />
-    <PackageReference Include="TensorFlow.NET" Version="0.20.1" />
+    <PackageReference Include="Microsoft.ML" Version="5.0.0" />
+    <PackageReference Include="Microsoft.ML.FastTree" Version="5.0.0" />
+    <PackageReference Include="Microsoft.ML.ImageAnalytics" Version="5.0.0" />
+    <PackageReference Include="Microsoft.ML.Recommender" Version="0.23.0" />
+    <PackageReference Include="Microsoft.ML.TensorFlow" Version="5.0.0" />
+    <PackageReference Include="Microsoft.ML.Vision" Version="5.0.0" />
+    <PackageReference Include="SciSharp.TensorFlow.Redist" Version="2.16.0" />
+    <PackageReference Include="TensorFlow.NET" Version="0.150.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ForecastingAI\" />
+    <Folder Include="RecommendationAI\Data\" />
   </ItemGroup>
 
 </Project>
